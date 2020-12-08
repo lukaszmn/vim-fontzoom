@@ -1,5 +1,5 @@
 " The fontsize controller in gVim.
-" Version: 0.2.0
+" Version: 0.3.0
 " Author : thinca <thinca+vim@gmail.com>
 " License: zlib License
 
@@ -22,20 +22,18 @@ endfunction
 function! s:fontzoom(size, reset)
   if a:reset
     if exists('s:keep')  " Reset font size.
-      let [&guifont, &guifontwide, &lines, &columns] = s:keep
+      let [&guifont, &guifontwide] = s:keep
       unlet! s:keep
     endif
   elseif a:size ==# ''
     echo matchstr(&guifont, g:fontzoom_pattern)
   else
     if !exists('s:keep')
-      let s:keep = [&guifont, &guifontwide, &lines, &columns]
+      let s:keep = [&guifont, &guifontwide]
     endif
     let newsize = (a:size =~# '^[+-]' ? 'submatch(0)' : '') . a:size
     let &guifont = s:change_fontsize(&guifont, newsize)
     let &guifontwide = s:change_fontsize(&guifontwide, newsize)
-    " Keep window size if possible.
-    let [&lines, &columns] = s:keep[2 :]
   endif
 endfunction
 

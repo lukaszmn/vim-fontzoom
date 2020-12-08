@@ -1,6 +1,6 @@
 *fontzoom.txt*	The fontsize controller in gVim.
 
-Version: 0.2.0
+Version: 0.3.0
 Modified: thinca <thinca+vim@gmail.com>
 License: zlib License
 
@@ -20,9 +20,8 @@ CHANGELOG			|fontzoom-changelog|
 INTRODUCTION					*fontzoom-introduction*
 
 *fontzoom* is a Vim plugin to control gui fontsize.  You can change fontsize
-with + and - keys(when default setting).  You can also use the [count].
-This plugin remember 'guifont', 'lines', and 'columns' when you change
-fontsize first.  And tries to keep the size of the window as much as possible.
+with + and - keys (when default setting).  You can also use the [count].
+This plugin remembers 'guifont' when you change fontsize first.
 
 
 
@@ -90,6 +89,9 @@ LIMITATION					*fontzoom-limitation*
 
 ==============================================================================
 CHANGELOG					*fontzoom-changelog*
+
+0.3.0	2020-12-08
+	- Removed resizing window when changing font size.
 
 0.2.0	2011-11-19
 	- Supported 'guifontwide'.
